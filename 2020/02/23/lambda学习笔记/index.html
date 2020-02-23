@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="lambda," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta name="description" content="Talk is cheap,Show me your code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Moody&#39;s Blog">
-<meta property="og:url" content="https://blog.liqian.fun/index.html">
+<meta name="description" content="Lambda表达式概述什么是Lambda Lambda表达式也被称为箭头函数，匿名函数，闭bao。 Lambda表达式体现的是轻量级函数式编程思想。 ‘-&gt;’符号式Lambda表达式核心操作符号，符号左侧是操作参数，符号右侧是操作表达式。 Lambda表达式是JDK8新特性，可以运行在jdk8及以上的运行环境。  Model Code as Data Model Code as Data,编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lambda学习笔记">
+<meta property="og:url" content="https://blog.liqian.fun/2020/02/23/lambda%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Moody&#39;s Blog">
-<meta property="og:description" content="Talk is cheap,Show me your code.">
+<meta property="og:description" content="Lambda表达式概述什么是Lambda Lambda表达式也被称为箭头函数，匿名函数，闭bao。 Lambda表达式体现的是轻量级函数式编程思想。 ‘-&gt;’符号式Lambda表达式核心操作符号，符号左侧是操作参数，符号右侧是操作表达式。 Lambda表达式是JDK8新特性，可以运行在jdk8及以上的运行环境。  Model Code as Data Model Code as Data,编">
+<meta property="article:published_time" content="2020-02-23T10:37:00.000Z">
+<meta property="article:modified_time" content="2020-02-23T10:38:27.950Z">
 <meta property="article:author" content="Moody">
+<meta property="article:tag" content="lambda">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.liqian.fun/"/>
+  <link rel="canonical" href="https://blog.liqian.fun/2020/02/23/lambda学习笔记/"/>
 
 
 
 
 
-  <title>Moody's Blog</title>
+  <title>lambda学习笔记 | Moody's Blog</title>
   
 
 
@@ -143,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -313,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/23/lambda%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">lambda学习笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">lambda学习笔记</h1>
         
 
         <div class="post-meta">
@@ -387,9 +387,7 @@
       
 
       
-        
-          
-            <h2 id="Lambda表达式概述"><a href="#Lambda表达式概述" class="headerlink" title="Lambda表达式概述"></a>Lambda表达式概述</h2><h3 id="什么是Lambda"><a href="#什么是Lambda" class="headerlink" title="什么是Lambda"></a>什么是Lambda</h3><ul>
+        <h2 id="Lambda表达式概述"><a href="#Lambda表达式概述" class="headerlink" title="Lambda表达式概述"></a>Lambda表达式概述</h2><h3 id="什么是Lambda"><a href="#什么是Lambda" class="headerlink" title="什么是Lambda"></a>什么是Lambda</h3><ul>
 <li>Lambda表达式也被称为箭头函数，匿名函数，闭bao。</li>
 <li>Lambda表达式体现的是轻量级函数式编程思想。</li>
 <li>‘-&gt;’符号式Lambda表达式核心操作符号，符号左侧是操作参数，符号右侧是操作表达式。</li>
@@ -458,8 +456,6 @@
 <h5 id="接收参数对象T，返回结果对象T-UnaryOperator"><a href="#接收参数对象T，返回结果对象T-UnaryOperator" class="headerlink" title="接收参数对象T，返回结果对象T UnaryOperator"></a>接收参数对象T，返回结果对象T UnaryOperator<T></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UnaryOperator&lt;String&gt; uo &#x3D; (String image)-&gt;&#123;</span><br><span class="line">    image +&#x3D;&quot;[100*200]&quot;;</span><br><span class="line">    return image;</span><br><span class="line">&#125;;</span><br><span class="line">System.out.println(uo.apply(&quot;原图片--&quot;));</span><br></pre></td></tr></table></figure>
 
 <h5 id="接收两个T对象，返回一个T对象的处理结果-BinaryOperator"><a href="#接收两个T对象，返回一个T对象的处理结果-BinaryOperator" class="headerlink" title="接收两个T对象，返回一个T对象的处理结果 BinaryOperator"></a>接收两个T对象，返回一个T对象的处理结果 BinaryOperator<T></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BinaryOperator&lt;Integer&gt; bo = (Integer i1,Integer i2)-&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> i1&gt;i2?i1:i2;</span><br><span class="line">&#125;;</span><br><span class="line">System.out.println(bo.apply(<span class="number">12</span>,<span class="number">13</span>));</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -474,336 +470,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.liqian.fun/2020/02/20/cesium%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Moody">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Moody's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/20/cesium%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">cesium学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-20T17:25:31+08:00">
-                2020-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9C%B0%E5%9B%BE/" itemprop="url" rel="index">
-                    <span itemprop="name">地图</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/lambda/" rel="tag"># lambda</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Cesium-引擎学习"><a href="#Cesium-引擎学习" class="headerlink" title="Cesium 引擎学习"></a>Cesium 引擎学习</h1><h2 id="Qt-WebSocket通信"><a href="#Qt-WebSocket通信" class="headerlink" title="Qt WebSocket通信"></a>Qt WebSocket通信</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">new QWebChannel(qt.webChannelTransport, function (channel) &#123;</span><br><span class="line">        &#x2F;&#x2F;绑定Qt端注册对象，需要与Qt注册方名字保持一致</span><br><span class="line">           interactObj &#x3D; channel.objects.interactObj;</span><br><span class="line">           if (interactObj.JSSendError)</span><br><span class="line">               interactObj.JSSendError(&quot;testeteeeeee&quot;);</span><br><span class="line">           &#x2F;&#x2F;Web connect the Qt signal,then Qt can call &quot;output&quot; function</span><br><span class="line">           interactObj.SigSendMessageToJS.connect(function (str) &#123;</span><br><span class="line">               try &#123;</span><br><span class="line">                   var date &#x3D; new Date();</span><br><span class="line">                   var cmd &#x3D; str.substring(0, 3);</span><br><span class="line">                   console.log(&#96;数据接收指令：$&#123;cmd&#125;，完成时间&#96; + date.toLocaleString());</span><br><span class="line">                   if (transport.receive[cmd]) &#123;</span><br><span class="line">                       if (typeof transport.receive[cmd] &#x3D;&#x3D; &quot;function&quot;) &#123;</span><br><span class="line">                           var data &#x3D; str.substr(3);</span><br><span class="line">                           transport.receive[cmd](data);</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; else &#123;</span><br><span class="line">                       console.log(&#96;接收指令：$&#123;cmd&#125;，但是未找到对应的处理模块&#96;);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125; catch (error) &#123;</span><br><span class="line">                   addLog(&#96;接收数据$&#123;str&#125;,数据指令处理出错，错误：$&#123;error&#125;&#96;)</span><br><span class="line">                   alert(&quot;数据指令处理出错,错误原因：&quot;+error);</span><br><span class="line">               &#125;</span><br><span class="line">               return</span><br><span class="line">           &#125;);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="初始化三维地图"><a href="#初始化三维地图" class="headerlink" title="初始化三维地图"></a>初始化三维地图</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"CesiumContainer"</span>&gt;&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">viewer = new Cesium.Viewer('CesiumContainer', &#123;</span></span><br><span class="line"><span class="regexp">        infoBox: false, /</span><span class="regexp">/是否显示点击要素之后显示的信息</span></span><br><span class="line"><span class="regexp">        selectionIndicator: false, /</span><span class="regexp">/是否显示投影方式控件</span></span><br><span class="line"><span class="regexp">        timeline: true, /</span><span class="regexp">/是否显示时间线控件</span></span><br><span class="line"><span class="regexp">        animation: true, /</span><span class="regexp">/是否显示动画空间</span></span><br><span class="line"><span class="regexp">        navigation: true,/</span><span class="regexp">/是否显示信息控件</span></span><br><span class="line"><span class="regexp">        shouldAnimate: false</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="加载地形侧影"><a href="#加载地形侧影" class="headerlink" title="加载地形侧影"></a>加载地形侧影</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer=<span class="keyword">new</span> Cesium.MapboxImageryProvider(&#123;</span><br><span class="line">        mapId: <span class="string">'mapbox.streets'</span>,</span><br><span class="line">        accessToken: <span class="string">'pk.eyJ1IjoibGlxaWFuOTciLCJhIjoiY2sybWw5Y3ZvMGo0YzNtdDVocGNuZnAyYiJ9.4szlvVdzJhZsYjyNCFxtJQ'</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="加载三维模型"><a href="#加载三维模型" class="headerlink" title="加载三维模型"></a>加载三维模型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tileset = viewer.scene.primitives.add(<span class="keyword">new</span> Cesium.Cesium3DTileset(&#123;</span><br><span class="line">        url: <span class="string">'http://ys.liqian.fun:8181/an_3dtiles/tileset.json'</span>,</span><br><span class="line">        <span class="comment">//classificationType:Cesium.ClassificationType.TERRAIN //地形侧影</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
-
-<h2 id="加载三维场景"><a href="#加载三维场景" class="headerlink" title="加载三维场景"></a>加载三维场景</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scene.open(<span class="string">"http://192.168.2.150:8090/iserver/services/3D-chengdushuangliu1231/rest/realspace"</span>).</span><br></pre></td></tr></table></figure>
-
-<h2 id="第一人称视角"><a href="#第一人称视角" class="headerlink" title="第一人称视角"></a>第一人称视角</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scope.viewer.camera.setView(&#123;</span><br><span class="line">  destination: pos,</span><br><span class="line">  orientation: headingpitchroll</span><br><span class="line">&#125;)</span><br><span class="line">scope.viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY)</span><br></pre></td></tr></table></figure>
-
-<h2 id="自由视角"><a href="#自由视角" class="headerlink" title="自由视角"></a>自由视角</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY) <span class="comment">//视角</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="清除kml数据"><a href="#清除kml数据" class="headerlink" title="清除kml数据"></a>清除kml数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDatasources=viewer.dataSources._dataSources.filter(<span class="function"><span class="params">t</span>=&gt;</span>t.name.indexOf(<span class="string">'kmldataSourcexxx'</span>)&gt;<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">  removeDatasources.forEach(<span class="function"><span class="params">t</span>=&gt;</span>&#123;</span><br><span class="line">    viewer.dataSources.remove(t,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="导入kml数据"><a href="#导入kml数据" class="headerlink" title="导入kml数据"></a>导入kml数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();<span class="comment">//new一个FileReader实例</span></span><br><span class="line">                reader.onload=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(flyline)&#123;</span><br><span class="line">                        flyline.impotKMLDatasource(e.target.result,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">                            $(<span class="string">'#fileselect'</span>).val(<span class="string">''</span>);</span><br><span class="line">                            $(<span class="string">"#loading"</span>).hide();</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">reader.readAsDataURL(<span class="keyword">this</span>.files[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h3 id="加载geojson数据，可拓展飞行边界"><a href="#加载geojson数据，可拓展飞行边界" class="headerlink" title="加载geojson数据，可拓展飞行边界"></a>加载geojson数据，可拓展飞行边界</h3><p><a href="http://geojson.io/#map=2/52.9/59.1" target="_blank" rel="noopener">http://geojson.io/#map=2/52.9/59.1</a></p>
-<h3 id="Cesium加载图片"><a href="#Cesium加载图片" class="headerlink" title="Cesium加载图片"></a>Cesium加载图片</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">viewer.entities.add(&#123;</span><br><span class="line">                position: poi,</span><br><span class="line">                billboard: &#123;</span><br><span class="line">                    width:<span class="number">50</span>,</span><br><span class="line">                    height:<span class="number">50</span>,</span><br><span class="line">                    image: <span class="string">''</span>,</span><br><span class="line">                    show: <span class="literal">true</span>, <span class="comment">// default</span></span><br><span class="line">                    horizontalOrigin: Cesium.HorizontalOrigin.RIGHT,</span><br><span class="line">                    distanceDisplayCondition : <span class="keyword">new</span> Cesium.DistanceDisplayCondition(<span class="number">0.0</span>, <span class="number">1000.0</span>)</span><br><span class="line">                    <span class="comment">//verticalOrigin: Cesium.VerticalOrigin.BOTTOM,</span></span><br><span class="line">                &#125;,</span><br><span class="line">                properties: d <span class="comment">//图片信息数据，json格式</span></span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Cesium加载gltf模型"><a href="#Cesium加载gltf模型" class="headerlink" title="Cesium加载gltf模型"></a>Cesium加载gltf模型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">viewer.entities.add(&#123;</span><br><span class="line">               name : <span class="string">""</span>,</span><br><span class="line">                position: Cesium.Cartesian3.fromDegrees(<span class="built_in">Number</span>(d.x), <span class="built_in">Number</span>(d.y), <span class="built_in">Number</span>(d.alt) + <span class="number">60</span>),</span><br><span class="line">                model: &#123;</span><br><span class="line">                    scale: <span class="number">1</span>,</span><br><span class="line">                    silhouetteColor:Cesium.Color.CYAN,</span><br><span class="line">                    silhouetteSize: <span class="number">0</span>,</span><br><span class="line">                    <span class="comment">//color:Cesium.Color.RED,</span></span><br><span class="line">                    uri: <span class="string">'./static/data/model/green.gltf'</span>,</span><br><span class="line">                    minimumPixelSize: <span class="number">128</span>,</span><br><span class="line">                    maximumScale: <span class="number">20000</span>,</span><br><span class="line">                   distanceDisplayCondition:<span class="keyword">new</span> Cesium.DistanceDisplayCondition(<span class="number">10.0</span>, <span class="number">300.0</span>)</span><br><span class="line">                &#125;,</span><br><span class="line">               properties: d</span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="围绕某个位置进行飞行"><a href="#围绕某个位置进行飞行" class="headerlink" title="围绕某个位置进行飞行"></a>围绕某个位置进行飞行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">rotateByPoint: <span class="function"><span class="keyword">function</span> (<span class="params">viewer, t</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.roate=!<span class="keyword">this</span>.roate</span><br><span class="line">            <span class="keyword">this</span>.position=t; <span class="comment">//坐标</span></span><br><span class="line">            <span class="keyword">this</span>.distance = Cesium.Cartesian3.distance(t, viewer.camera.positionWC);</span><br><span class="line">            <span class="keyword">this</span>.angle = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">var</span> time = viewer.clock.currentTime.clone();</span><br><span class="line">            <span class="keyword">this</span>.heading = viewer.camera.heading;</span><br><span class="line">            <span class="keyword">this</span>.pitch = <span class="number">-0.97</span><span class="comment">//viewer.camera.pitch;</span></span><br><span class="line">            <span class="keyword">var</span> $<span class="keyword">this</span>=<span class="keyword">this</span></span><br><span class="line">            <span class="keyword">this</span>.viewer.clock.onTick.addEventListener(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">var</span> ti =Cesium.JulianDate.secondsDifference(<span class="keyword">this</span>.viewer.clock.currentTime,time),</span><br><span class="line">                    i = Cesium.Math.toRadians(ti *<span class="number">10</span>) + <span class="number">3</span>;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.pitch)</span><br><span class="line">                <span class="keyword">if</span>($<span class="keyword">this</span>.roate)&#123;</span><br><span class="line">                    <span class="keyword">this</span>.viewer.scene.camera.setView(</span><br><span class="line">                        &#123;</span><br><span class="line">                            destination: t,</span><br><span class="line">                            orientation: &#123;</span><br><span class="line">                                heading: i,</span><br><span class="line">                                roll:<span class="number">6.283185182050259</span>,</span><br><span class="line">                                pitch: <span class="number">-0.97</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                ),</span><br><span class="line">                        <span class="comment">// this.viewer.scene.camera.moveBackward(this.distance )</span></span><br><span class="line">                        <span class="keyword">this</span>.viewer.scene.camera.moveBackward(<span class="number">200</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                &#125;, <span class="keyword">this</span>);</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.liqian.fun/2020/02/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Moody">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Moody's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/15/hello-world/" itemprop="url">Hexo入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-15T22:50:56+08:00">
-                2020-02-15
-              </time>
+              <a href="/2020/02/20/cesium%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="cesium学习笔记">
+                <i class="fa fa-chevron-left"></i> cesium学习笔记
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -813,10 +509,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -824,6 +521,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -844,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -932,6 +642,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式概述"><span class="nav-number">1.</span> <span class="nav-text">Lambda表达式概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Lambda"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Lambda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Code-as-Data"><span class="nav-number">1.2.</span> <span class="nav-text">Model Code as Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目问题：功能接口的设计与优化"><span class="nav-number">1.3.</span> <span class="nav-text">项目问题：功能接口的设计与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目实践"><span class="nav-number">1.3.1.</span> <span class="nav-text">项目实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用Lambda表达式"><span class="nav-number">1.4.</span> <span class="nav-text">为什么使用Lambda表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式基本语法"><span class="nav-number">2.</span> <span class="nav-text">Lambda表达式基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式接口-function-interface"><span class="nav-number">2.1.</span> <span class="nav-text">函数式接口(function interface)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">2.1.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用规则"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示范"><span class="nav-number">2.1.3.</span> <span class="nav-text">代码示范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda表达式与函数式接口的关系"><span class="nav-number">2.2.</span> <span class="nav-text">Lambda表达式与函数式接口的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示范-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">代码示范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK中常见的函数式接口"><span class="nav-number">2.3.</span> <span class="nav-text">JDK中常见的函数式接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#案例"><span class="nav-number">2.3.1.</span> <span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#验证一个参数是否合法性-Predicate"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">验证一个参数是否合法性 Predicate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口一个参数，不返回任何结果-Consumer"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">接口一个参数，不返回任何结果 Consumer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接收参数对象T，返回结果对象R-Function-lt-T-R-gt"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">接收参数对象T，返回结果对象R Function&lt;T,R&gt;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不接受参数，提供T对象的创建工厂-Supplier"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">不接受参数，提供T对象的创建工厂 Supplier</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接收参数对象T，返回结果对象T-UnaryOperator"><span class="nav-number">2.3.1.5.</span> <span class="nav-text">接收参数对象T，返回结果对象T UnaryOperator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接收两个T对象，返回一个T对象的处理结果-BinaryOperator"><span class="nav-number">2.3.1.6.</span> <span class="nav-text">接收两个T对象，返回一个T对象的处理结果 BinaryOperator</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1072,6 +798,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
