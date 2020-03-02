@@ -1,382 +1,148 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="linux基础," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Moody's Blog" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="这篇文章翻译自 http:&#x2F;&#x2F;www.thegeekstuff.com&#x2F;2010&#x2F;11&#x2F;50-linux-commands 这些都是一些很常用的命令，这篇文章中每个命令都有一些简单的示例说明它的用法， 对于想学习Unix&#x2F;Linux的人，这些命令基本上都是需要掌握的。  1. tar创建一个新的tar文件1$ tar cvf archive_name.tar dirname&#x2F;  解压t">
-<meta property="og:type" content="article">
-<meta property="og:title" content="作为开发不得不知道的linux常用命令">
-<meta property="og:url" content="https://blog.liqian.fun/2019/04/20/%E4%BD%9C%E4%B8%BA%E5%BC%80%E5%8F%91%E4%B8%8D%E5%BE%97%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
-<meta property="og:site_name" content="Moody&#39;s Blog">
-<meta property="og:description" content="这篇文章翻译自 http:&#x2F;&#x2F;www.thegeekstuff.com&#x2F;2010&#x2F;11&#x2F;50-linux-commands 这些都是一些很常用的命令，这篇文章中每个命令都有一些简单的示例说明它的用法， 对于想学习Unix&#x2F;Linux的人，这些命令基本上都是需要掌握的。  1. tar创建一个新的tar文件1$ tar cvf archive_name.tar dirname&#x2F;  解压t">
-<meta property="article:published_time" content="2019-04-20T14:09:39.000Z">
-<meta property="article:modified_time" content="2020-02-25T14:11:25.370Z">
-<meta property="article:author" content="Moody">
-<meta property="article:tag" content="linux基础">
-<meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://blog.liqian.fun/2019/04/20/作为开发不得不知道的linux常用命令/"/>
-
-
-
-
-
-  <title>作为开发不得不知道的linux常用命令 | Moody's Blog</title>
-  
-
-
-
-
-
-
-
-
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="liqian has a blog">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        作为开发不得不知道的linux常用命令 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
     
-  
+<link rel="stylesheet" href="/css/aircloud.css">
 
-  <div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
     
+<link rel="stylesheet" href="/css/gitment.css">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Moody's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Moody's Blog" type="application/atom+xml">
+</head>
 
-  <div class="site-nav-toggle">
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
     <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
     </button>
-  </div>
 </div>
 
-<nav class="site-nav">
-  
+<div class="index-about">
+    <i> Talk is cheap,Show me your code. </i>
+</div>
 
-  
-    <ul id="menu" class="menu">
-      
+<div class="index-container">
+    
+    <div class="index-left">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/images/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Moody</i>
+        </div>
     </div>
-  </div>
-  <div id="local-search-result"></div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-tar"><span class="toc-text">1. tar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个新的tar文件"><span class="toc-text">创建一个新的tar文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压tar文件"><span class="toc-text">解压tar文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看tar文件"><span class="toc-text">查看tar文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-grep"><span class="toc-text">2. grep</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在文件中查找字符串-不区分大小写"><span class="toc-text">在文件中查找字符串(不区分大小写)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出成功匹配的行，以及该行之后的三行"><span class="toc-text">输出成功匹配的行，以及该行之后的三行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在一个文件夹中递归查询包含指定字符串的文件"><span class="toc-text">在一个文件夹中递归查询包含指定字符串的文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-find"><span class="toc-text">3. find</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查找指定文件名的文件-不区分大小写"><span class="toc-text">查找指定文件名的文件(不区分大小写)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对找到的文件执行某个命令"><span class="toc-text">对找到的文件执行某个命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找home目录下的所有空文件"><span class="toc-text">查找home目录下的所有空文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-ssh"><span class="toc-text">4. ssh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#登录到远程主机"><span class="toc-text">登录到远程主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试ssh客户端"><span class="toc-text">调试ssh客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示ssh客户端版本"><span class="toc-text">显示ssh客户端版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-sed"><span class="toc-text">5. sed</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#当你将Dos系统中的文件复制到Unix-Linux后，这个文件每行都会以-r-n结尾，sed可以轻易将其转换为Unix格式的文件，使用-n结尾的文件"><span class="toc-text">当你将Dos系统中的文件复制到Unix&#x2F;Linux后，这个文件每行都会以\r\n结尾，sed可以轻易将其转换为Unix格式的文件，使用\n结尾的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反转文件内容并输出"><span class="toc-text">反转文件内容并输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为非空行添加行号"><span class="toc-text">为非空行添加行号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-awk"><span class="toc-text">6. awk</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除重复行"><span class="toc-text">删除重复行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打印-etc-passwd中所有包含同样的uid和gid的行"><span class="toc-text">打印&#x2F;etc&#x2F;passwd中所有包含同样的uid和gid的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打印文件中的指定部分的字段"><span class="toc-text">打印文件中的指定部分的字段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-vim"><span class="toc-text">7. vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件并跳到第10行"><span class="toc-text">打开文件并跳到第10行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件跳到第一个匹配的行"><span class="toc-text">打开文件跳到第一个匹配的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以只读模式打开文件"><span class="toc-text">以只读模式打开文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-diff"><span class="toc-text">8. diff</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#比较的时候忽略空白符"><span class="toc-text">比较的时候忽略空白符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-sort"><span class="toc-text">9. sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以升序对文件内容排序"><span class="toc-text">以升序对文件内容排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以降序对文件内容排序"><span class="toc-text">以降序对文件内容排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以第三个字段对-etc-passwd的内容排序"><span class="toc-text">以第三个字段对&#x2F;etc&#x2F;passwd的内容排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-export"><span class="toc-text">10. export</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输出跟字符串oracle匹配的环境变量"><span class="toc-text">输出跟字符串oracle匹配的环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置全局环境变量"><span class="toc-text">设置全局环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-xargs"><span class="toc-text">11. xargs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#将所有图片文件拷贝到外部驱动器"><span class="toc-text">将所有图片文件拷贝到外部驱动器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将系统中所有jpd文件压缩打包"><span class="toc-text">将系统中所有jpd文件压缩打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载文件中列出的所有url对应的页面"><span class="toc-text">下载文件中列出的所有url对应的页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-ls"><span class="toc-text">12. ls</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以易读的方式显示文件大小-显示为MB-GB…"><span class="toc-text">以易读的方式显示文件大小(显示为MB,GB…)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以最后修改时间升序列出文件"><span class="toc-text">以最后修改时间升序列出文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在文件名后面显示文件类型"><span class="toc-text">在文件名后面显示文件类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-pwd"><span class="toc-text">13. pwd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输出当前工作目录"><span class="toc-text">输出当前工作目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-cd"><span class="toc-text">14. cd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-gzip"><span class="toc-text">15. gzip</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个-gz-的压缩文件"><span class="toc-text">创建一个 *.gz 的压缩文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压-gz-文件"><span class="toc-text">解压 *.gz 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示压缩的比率"><span class="toc-text">显示压缩的比率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-bzip2"><span class="toc-text">16. bzip2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-bz2-压缩文件"><span class="toc-text">创建 *.bz2 压缩文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压-bz2-文件"><span class="toc-text">解压 *.bz2 文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-uzip"><span class="toc-text">17. uzip</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压-zip-文件"><span class="toc-text">解压 *.zip 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-zip-文件的内容"><span class="toc-text">查看 *.zip 文件的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-shutdown"><span class="toc-text">18. shutdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭系统并立即关机"><span class="toc-text">关闭系统并立即关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10分钟后关机"><span class="toc-text">10分钟后关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启"><span class="toc-text">重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启期间强制进行系统检查"><span class="toc-text">重启期间强制进行系统检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-ftp"><span class="toc-text">19. ftp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件"><span class="toc-text">ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示远程主机上文件列表"><span class="toc-text">显示远程主机上文件列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-crontab"><span class="toc-text">20. crontab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看某个用户的-crontab-入口"><span class="toc-text">查看某个用户的 crontab 入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置一个每十分钟执行一次的计划任务"><span class="toc-text">设置一个每十分钟执行一次的计划任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-service"><span class="toc-text">21. service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看服务状态"><span class="toc-text">查看服务状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看所有服务状态"><span class="toc-text">查看所有服务状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务"><span class="toc-text">重启服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-ps"><span class="toc-text">22. ps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看当前正在运行的所有进程"><span class="toc-text">查看当前正在运行的所有进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以树状结构显示当前正在运行的进程，H选项表示显示进程的层次结构"><span class="toc-text">以树状结构显示当前正在运行的进程，H选项表示显示进程的层次结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-free"><span class="toc-text">23. free</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认情况下free会以字节为单位输出内存的使用量"><span class="toc-text">默认情况下free会以字节为单位输出内存的使用量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果你想以其他单位输出内存的使用量，需要加一个选项，-g为GB，-m为MB，-k为KB，-b为字节"><span class="toc-text">如果你想以其他单位输出内存的使用量，需要加一个选项，-g为GB，-m为MB，-k为KB，-b为字节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行"><span class="toc-text">如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-top"><span class="toc-text">24. top</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如果只想显示某个特定用户的进程，可以使用-u选项"><span class="toc-text">如果只想显示某个特定用户的进程，可以使用-u选项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-df"><span class="toc-text">25. df</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示文件系统的磁盘使用情况，默认情况下df-k-将以字节为单位输出磁盘的使用量"><span class="toc-text">显示文件系统的磁盘使用情况，默认情况下df -k 将以字节为单位输出磁盘的使用量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-h-选项可以以更符合阅读习惯的方式显示磁盘使用量"><span class="toc-text">使用 -h 选项可以以更符合阅读习惯的方式显示磁盘使用量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-T-选项显示文件系统类型"><span class="toc-text">使用 -T 选项显示文件系统类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-kill"><span class="toc-text">26. kill</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kill-用于终止一个进程。一般我们会先用ps-ef查找某个进程得到它的进程号，然后再使用kill-9-进程号终止该进程。你还可以使用killall、pkill、xkill来终止进程"><span class="toc-text">kill 用于终止一个进程。一般我们会先用ps -ef查找某个进程得到它的进程号，然后再使用kill -9 进程号终止该进程。你还可以使用killall、pkill、xkill来终止进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-rm"><span class="toc-text">27. rm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件前先确认"><span class="toc-text">删除文件前先确认</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在文件名中使用shell的元字符会非常有用。删除文件前先打印文件名并进行确认"><span class="toc-text">在文件名中使用shell的元字符会非常有用。删除文件前先打印文件名并进行确认</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归删除文件夹下所有文件，并删除该文件夹"><span class="toc-text">递归删除文件夹下所有文件，并删除该文件夹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-cp"><span class="toc-text">28. cp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝文件1到文件2，并保持文件的权限、属主和时间戳"><span class="toc-text">拷贝文件1到文件2，并保持文件的权限、属主和时间戳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝file1到file2，如果file2存在会提示是否覆盖"><span class="toc-text">拷贝file1到file2，如果file2存在会提示是否覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-mv"><span class="toc-text">29. mv</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#将文件名file1重命名为file2，如果file2存在则提示是否覆盖"><span class="toc-text">将文件名file1重命名为file2，如果file2存在则提示是否覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-cat"><span class="toc-text">30. cat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容"><span class="toc-text">你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n命令可以在每行的前面加上行号"><span class="toc-text">-n命令可以在每行的前面加上行号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-mount"><span class="toc-text">31. mount</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上"><span class="toc-text">如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载"><span class="toc-text">也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-chmod"><span class="toc-text">32. chmod</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod用于改变文件和目录的权限"><span class="toc-text">chmod用于改变文件和目录的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除指定文件的属组的所有权限"><span class="toc-text">删除指定文件的属组的所有权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改目录的权限，以及递归修改目录下面所有文件和子目录的权限"><span class="toc-text">修改目录的权限，以及递归修改目录下面所有文件和子目录的权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-chown"><span class="toc-text">33. chown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同时将某个文件的属主改为oracle，属组改为db"><span class="toc-text">同时将某个文件的属主改为oracle，属组改为db</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-R选项对目录和目录下的文件进行递归修改"><span class="toc-text">使用-R选项对目录和目录下的文件进行递归修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#34-passwd"><span class="toc-text">34. passwd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd用于在命令行修改密码，使用这个命令会要求你先输入旧密码，然后输入新密码"><span class="toc-text">passwd用于在命令行修改密码，使用这个命令会要求你先输入旧密码，然后输入新密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超级用户可以用这个命令修改其他用户的密码，这个时候不需要输入用户的密码"><span class="toc-text">超级用户可以用这个命令修改其他用户的密码，这个时候不需要输入用户的密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd还可以删除某个用户的密码，这个命令只有root用户才能操作，删除密码后，这个用户不需要输入密码就可以登录到系统"><span class="toc-text">passwd还可以删除某个用户的密码，这个命令只有root用户才能操作，删除密码后，这个用户不需要输入密码就可以登录到系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-mkdir"><span class="toc-text">35. mkdir</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在home目录下创建一个名为temp的目录"><span class="toc-text">在home目录下创建一个名为temp的目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-p选项可以创建一个路径上所有不存在的目录"><span class="toc-text">使用-p选项可以创建一个路径上所有不存在的目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#36-ifconfig"><span class="toc-text">36. ifconfig</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看所有网络接口及其状态"><span class="toc-text">查看所有网络接口及其状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用up和down命令启动或停止某个接口"><span class="toc-text">使用up和down命令启动或停止某个接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-uname"><span class="toc-text">37. uname</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息"><span class="toc-text">uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-whereis"><span class="toc-text">38. whereis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#当你不知道某个命令的位置时可以使用whereis命令，下面使用whereis查找ls的位置"><span class="toc-text">当你不知道某个命令的位置时可以使用whereis命令，下面使用whereis查找ls的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当你想查找某个可执行程序的位置，但这个程序又不在whereis的默认目录下，你可以使用-B选项，并指定目录作为这个选项的参数。下面的命令在-tmp目录下查找lsmk命令"><span class="toc-text">当你想查找某个可执行程序的位置，但这个程序又不在whereis的默认目录下，你可以使用-B选项，并指定目录作为这个选项的参数。下面的命令在&#x2F;tmp目录下查找lsmk命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-whatis"><span class="toc-text">39. whatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wathis显示某个命令的描述信息"><span class="toc-text">wathis显示某个命令的描述信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-locate"><span class="toc-text">40. locate</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下面的命令会显示系统中所有包含crontab字符串的文件"><span class="toc-text">下面的命令会显示系统中所有包含crontab字符串的文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-man"><span class="toc-text">41. man</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示某个命令的man页面"><span class="toc-text">显示某个命令的man页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有些命令可能会有多个man页面，每个man页面对应一种命令类型"><span class="toc-text">有些命令可能会有多个man页面，每个man页面对应一种命令类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man页面一般可以分为8种命令类型"><span class="toc-text">man页面一般可以分为8种命令类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-tail"><span class="toc-text">42. tail</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tail命令默认显示文件最后的10行文本"><span class="toc-text">tail命令默认显示文件最后的10行文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你可以使用-n选项指定要显示的行数"><span class="toc-text">你可以使用-n选项指定要显示的行数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你也可以使用-f选项进行实时查看，这个命令执行后会等待，如果有新行添加到文件尾部，它会继续输出新的行，在查看日志时这个选项会非常有用。你可以通过CTRL-C终止命令的执行"><span class="toc-text">你也可以使用-f选项进行实时查看，这个命令执行后会等待，如果有新行添加到文件尾部，它会继续输出新的行，在查看日志时这个选项会非常有用。你可以通过CTRL-C终止命令的执行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#43-less"><span class="toc-text">43. less</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用"><span class="toc-text">这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当你用less命令打开某个文件时，下面两个按键会给你带来很多帮助，他们用于向前和向后滚屏"><span class="toc-text">当你用less命令打开某个文件时，下面两个按键会给你带来很多帮助，他们用于向前和向后滚屏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-su"><span class="toc-text">44. su</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码"><span class="toc-text">su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用另外一个用户名执行一个命令下面的示例中用户john使用raj用户名执行ls命令，执行完后返回john的账号"><span class="toc-text">用另外一个用户名执行一个命令下面的示例中用户john使用raj用户名执行ls命令，执行完后返回john的账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用指定用户登录，并且使用指定的shell程序，而不用默认的"><span class="toc-text">用指定用户登录，并且使用指定的shell程序，而不用默认的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-mysql"><span class="toc-text">45. mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接一个远程数据库，需要输入密码"><span class="toc-text">连接一个远程数据库，需要输入密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接本地数据库"><span class="toc-text">连接本地数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#46-yum"><span class="toc-text">46. yum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用yum安装apache"><span class="toc-text">使用yum安装apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新apache"><span class="toc-text">更新apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-删除apache"><span class="toc-text">卸载&#x2F;删除apache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#47-rpm"><span class="toc-text">47. rpm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用rpm安装apache"><span class="toc-text">使用rpm安装apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新apache-1"><span class="toc-text">更新apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-删除apache-1"><span class="toc-text">卸载&#x2F;删除apache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#48-ping"><span class="toc-text">48. ping</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ping一个远程主机，只发5个数据包"><span class="toc-text">ping一个远程主机，只发5个数据包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#49-date"><span class="toc-text">49. date</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置系统日期"><span class="toc-text">设置系统日期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当你修改了系统时间，你需要同步硬件时间和系统时间"><span class="toc-text">当你修改了系统时间，你需要同步硬件时间和系统时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#50-wget"><span class="toc-text">50. wget</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用wget从网上下载软件、音乐、视频"><span class="toc-text">使用wget从网上下载软件、音乐、视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载文件并以指定的文件名保存文件"><span class="toc-text">下载文件并以指定的文件名保存文件</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.liqian.fun/2019/04/20/%E4%BD%9C%E4%B8%BA%E5%BC%80%E5%8F%91%E4%B8%8D%E5%BE%97%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Moody">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Moody's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">作为开发不得不知道的linux常用命令</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T22:09:39+08:00">
-                2019-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
 
         </div>
-      </header>
-    
+    </div>
+</div>
 
+        <div class="index-about-mobile">
+            <i> Talk is cheap,Show me your code. </i>
+        </div>
+    </div>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div class="index-middle">
+        <!-- Main Content -->
+        
 
-      
-      
 
-      
+<div class="post-container">
+    <div class="post-title">
+        作为开发不得不知道的linux常用命令
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-04-20 22:09:39</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux基础" title="linux基础">linux基础</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
         <blockquote>
 <p>这篇文章翻译自 <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/" target="_blank" rel="noopener">http://www.thegeekstuff.com/2010/11/50-linux-commands</a> 这些都是一些很常用的命令，这篇文章中每个命令都有一些简单的示例说明它的用法， 对于想学习Unix/Linux的人，这些命令基本上都是需要掌握的。</p>
 </blockquote>
@@ -656,730 +422,65 @@
 
 <p>更多示例：[The Ultimate Wget Download Guide With 15 Awesome Examples](</p>
 
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/linux%E5%9F%BA%E7%A1%80/" rel="tag"># linux基础</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/15/hello-world/" rel="prev" title="Hexo入门">
-                Hexo入门 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Moody" />
-            
-              <p class="site-author-name" itemprop="name">Moody</p>
-              <p class="site-description motion-element" itemprop="description">Talk is cheap,Show me your code.</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives">
-              
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/isliqian" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="qianboy233@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
+        <br />
+        <div id="comment-container">
         </div>
-      </section>
+        <div id="disqus_thread"></div>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-tar"><span class="nav-number">1.</span> <span class="nav-text">1. tar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个新的tar文件"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个新的tar文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压tar文件"><span class="nav-number">1.2.</span> <span class="nav-text">解压tar文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看tar文件"><span class="nav-number">1.3.</span> <span class="nav-text">查看tar文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-grep"><span class="nav-number">2.</span> <span class="nav-text">2. grep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在文件中查找字符串-不区分大小写"><span class="nav-number">2.1.</span> <span class="nav-text">在文件中查找字符串(不区分大小写)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出成功匹配的行，以及该行之后的三行"><span class="nav-number">2.2.</span> <span class="nav-text">输出成功匹配的行，以及该行之后的三行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在一个文件夹中递归查询包含指定字符串的文件"><span class="nav-number">2.3.</span> <span class="nav-text">在一个文件夹中递归查询包含指定字符串的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-find"><span class="nav-number">3.</span> <span class="nav-text">3. find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找指定文件名的文件-不区分大小写"><span class="nav-number">3.1.</span> <span class="nav-text">查找指定文件名的文件(不区分大小写)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对找到的文件执行某个命令"><span class="nav-number">3.2.</span> <span class="nav-text">对找到的文件执行某个命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找home目录下的所有空文件"><span class="nav-number">3.3.</span> <span class="nav-text">查找home目录下的所有空文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-ssh"><span class="nav-number">4.</span> <span class="nav-text">4. ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录到远程主机"><span class="nav-number">4.1.</span> <span class="nav-text">登录到远程主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试ssh客户端"><span class="nav-number">4.2.</span> <span class="nav-text">调试ssh客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示ssh客户端版本"><span class="nav-number">4.3.</span> <span class="nav-text">显示ssh客户端版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-sed"><span class="nav-number">5.</span> <span class="nav-text">5. sed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当你将Dos系统中的文件复制到Unix-Linux后，这个文件每行都会以-r-n结尾，sed可以轻易将其转换为Unix格式的文件，使用-n结尾的文件"><span class="nav-number">5.1.</span> <span class="nav-text">当你将Dos系统中的文件复制到Unix&#x2F;Linux后，这个文件每行都会以\r\n结尾，sed可以轻易将其转换为Unix格式的文件，使用\n结尾的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反转文件内容并输出"><span class="nav-number">5.2.</span> <span class="nav-text">反转文件内容并输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为非空行添加行号"><span class="nav-number">5.3.</span> <span class="nav-text">为非空行添加行号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-awk"><span class="nav-number">6.</span> <span class="nav-text">6. awk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除重复行"><span class="nav-number">6.1.</span> <span class="nav-text">删除重复行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印-etc-passwd中所有包含同样的uid和gid的行"><span class="nav-number">6.2.</span> <span class="nav-text">打印&#x2F;etc&#x2F;passwd中所有包含同样的uid和gid的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印文件中的指定部分的字段"><span class="nav-number">6.3.</span> <span class="nav-text">打印文件中的指定部分的字段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-vim"><span class="nav-number">7.</span> <span class="nav-text">7. vim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件并跳到第10行"><span class="nav-number">7.1.</span> <span class="nav-text">打开文件并跳到第10行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件跳到第一个匹配的行"><span class="nav-number">7.2.</span> <span class="nav-text">打开文件跳到第一个匹配的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以只读模式打开文件"><span class="nav-number">7.3.</span> <span class="nav-text">以只读模式打开文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-diff"><span class="nav-number">8.</span> <span class="nav-text">8. diff</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较的时候忽略空白符"><span class="nav-number">8.1.</span> <span class="nav-text">比较的时候忽略空白符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-sort"><span class="nav-number">9.</span> <span class="nav-text">9. sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以升序对文件内容排序"><span class="nav-number">9.1.</span> <span class="nav-text">以升序对文件内容排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以降序对文件内容排序"><span class="nav-number">9.2.</span> <span class="nav-text">以降序对文件内容排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以第三个字段对-etc-passwd的内容排序"><span class="nav-number">9.3.</span> <span class="nav-text">以第三个字段对&#x2F;etc&#x2F;passwd的内容排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-export"><span class="nav-number">10.</span> <span class="nav-text">10. export</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出跟字符串oracle匹配的环境变量"><span class="nav-number">10.1.</span> <span class="nav-text">输出跟字符串oracle匹配的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置全局环境变量"><span class="nav-number">10.2.</span> <span class="nav-text">设置全局环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-xargs"><span class="nav-number">11.</span> <span class="nav-text">11. xargs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将所有图片文件拷贝到外部驱动器"><span class="nav-number">11.1.</span> <span class="nav-text">将所有图片文件拷贝到外部驱动器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将系统中所有jpd文件压缩打包"><span class="nav-number">11.2.</span> <span class="nav-text">将系统中所有jpd文件压缩打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件中列出的所有url对应的页面"><span class="nav-number">11.3.</span> <span class="nav-text">下载文件中列出的所有url对应的页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-ls"><span class="nav-number">12.</span> <span class="nav-text">12. ls</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以易读的方式显示文件大小-显示为MB-GB…"><span class="nav-number">12.1.</span> <span class="nav-text">以易读的方式显示文件大小(显示为MB,GB…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以最后修改时间升序列出文件"><span class="nav-number">12.2.</span> <span class="nav-text">以最后修改时间升序列出文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文件名后面显示文件类型"><span class="nav-number">12.3.</span> <span class="nav-text">在文件名后面显示文件类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-pwd"><span class="nav-number">13.</span> <span class="nav-text">13. pwd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出当前工作目录"><span class="nav-number">13.1.</span> <span class="nav-text">输出当前工作目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-cd"><span class="nav-number">14.</span> <span class="nav-text">14. cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-gzip"><span class="nav-number">15.</span> <span class="nav-text">15. gzip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-gz-的压缩文件"><span class="nav-number">15.1.</span> <span class="nav-text">创建一个 *.gz 的压缩文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压-gz-文件"><span class="nav-number">15.2.</span> <span class="nav-text">解压 *.gz 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示压缩的比率"><span class="nav-number">15.3.</span> <span class="nav-text">显示压缩的比率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-bzip2"><span class="nav-number">16.</span> <span class="nav-text">16. bzip2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-bz2-压缩文件"><span class="nav-number">16.1.</span> <span class="nav-text">创建 *.bz2 压缩文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压-bz2-文件"><span class="nav-number">16.2.</span> <span class="nav-text">解压 *.bz2 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-uzip"><span class="nav-number">17.</span> <span class="nav-text">17. uzip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压-zip-文件"><span class="nav-number">17.1.</span> <span class="nav-text">解压 *.zip 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-zip-文件的内容"><span class="nav-number">17.2.</span> <span class="nav-text">查看 *.zip 文件的内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-shutdown"><span class="nav-number">18.</span> <span class="nav-text">18. shutdown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭系统并立即关机"><span class="nav-number">18.1.</span> <span class="nav-text">关闭系统并立即关机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10分钟后关机"><span class="nav-number">18.2.</span> <span class="nav-text">10分钟后关机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启"><span class="nav-number">18.3.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启期间强制进行系统检查"><span class="nav-number">18.4.</span> <span class="nav-text">重启期间强制进行系统检查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-ftp"><span class="nav-number">19.</span> <span class="nav-text">19. ftp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件"><span class="nav-number">19.1.</span> <span class="nav-text">ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示远程主机上文件列表"><span class="nav-number">19.2.</span> <span class="nav-text">显示远程主机上文件列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-crontab"><span class="nav-number">20.</span> <span class="nav-text">20. crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看某个用户的-crontab-入口"><span class="nav-number">20.1.</span> <span class="nav-text">查看某个用户的 crontab 入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置一个每十分钟执行一次的计划任务"><span class="nav-number">20.2.</span> <span class="nav-text">设置一个每十分钟执行一次的计划任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-service"><span class="nav-number">21.</span> <span class="nav-text">21. service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看服务状态"><span class="nav-number">21.1.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有服务状态"><span class="nav-number">21.2.</span> <span class="nav-text">查看所有服务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启服务"><span class="nav-number">21.3.</span> <span class="nav-text">重启服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-ps"><span class="nav-number">22.</span> <span class="nav-text">22. ps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前正在运行的所有进程"><span class="nav-number">22.1.</span> <span class="nav-text">查看当前正在运行的所有进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以树状结构显示当前正在运行的进程，H选项表示显示进程的层次结构"><span class="nav-number">22.2.</span> <span class="nav-text">以树状结构显示当前正在运行的进程，H选项表示显示进程的层次结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-free"><span class="nav-number">23.</span> <span class="nav-text">23. free</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认情况下free会以字节为单位输出内存的使用量"><span class="nav-number">23.1.</span> <span class="nav-text">默认情况下free会以字节为单位输出内存的使用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你想以其他单位输出内存的使用量，需要加一个选项，-g为GB，-m为MB，-k为KB，-b为字节"><span class="nav-number">23.2.</span> <span class="nav-text">如果你想以其他单位输出内存的使用量，需要加一个选项，-g为GB，-m为MB，-k为KB，-b为字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行"><span class="nav-number">23.3.</span> <span class="nav-text">如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-top"><span class="nav-number">24.</span> <span class="nav-text">24. top</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果只想显示某个特定用户的进程，可以使用-u选项"><span class="nav-number">24.1.</span> <span class="nav-text">如果只想显示某个特定用户的进程，可以使用-u选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-df"><span class="nav-number">25.</span> <span class="nav-text">25. df</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文件系统的磁盘使用情况，默认情况下df-k-将以字节为单位输出磁盘的使用量"><span class="nav-number">25.1.</span> <span class="nav-text">显示文件系统的磁盘使用情况，默认情况下df -k 将以字节为单位输出磁盘的使用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-h-选项可以以更符合阅读习惯的方式显示磁盘使用量"><span class="nav-number">25.2.</span> <span class="nav-text">使用 -h 选项可以以更符合阅读习惯的方式显示磁盘使用量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-T-选项显示文件系统类型"><span class="nav-number">25.3.</span> <span class="nav-text">使用 -T 选项显示文件系统类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-kill"><span class="nav-number">26.</span> <span class="nav-text">26. kill</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kill-用于终止一个进程。一般我们会先用ps-ef查找某个进程得到它的进程号，然后再使用kill-9-进程号终止该进程。你还可以使用killall、pkill、xkill来终止进程"><span class="nav-number">26.1.</span> <span class="nav-text">kill 用于终止一个进程。一般我们会先用ps -ef查找某个进程得到它的进程号，然后再使用kill -9 进程号终止该进程。你还可以使用killall、pkill、xkill来终止进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-rm"><span class="nav-number">27.</span> <span class="nav-text">27. rm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件前先确认"><span class="nav-number">27.1.</span> <span class="nav-text">删除文件前先确认</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文件名中使用shell的元字符会非常有用。删除文件前先打印文件名并进行确认"><span class="nav-number">27.2.</span> <span class="nav-text">在文件名中使用shell的元字符会非常有用。删除文件前先打印文件名并进行确认</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归删除文件夹下所有文件，并删除该文件夹"><span class="nav-number">27.3.</span> <span class="nav-text">递归删除文件夹下所有文件，并删除该文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-cp"><span class="nav-number">28.</span> <span class="nav-text">28. cp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拷贝文件1到文件2，并保持文件的权限、属主和时间戳"><span class="nav-number">28.1.</span> <span class="nav-text">拷贝文件1到文件2，并保持文件的权限、属主和时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拷贝file1到file2，如果file2存在会提示是否覆盖"><span class="nav-number">28.2.</span> <span class="nav-text">拷贝file1到file2，如果file2存在会提示是否覆盖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-mv"><span class="nav-number">29.</span> <span class="nav-text">29. mv</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将文件名file1重命名为file2，如果file2存在则提示是否覆盖"><span class="nav-number">29.1.</span> <span class="nav-text">将文件名file1重命名为file2，如果file2存在则提示是否覆盖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30-cat"><span class="nav-number">30.</span> <span class="nav-text">30. cat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容"><span class="nav-number">30.1.</span> <span class="nav-text">你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n命令可以在每行的前面加上行号"><span class="nav-number">30.2.</span> <span class="nav-text">-n命令可以在每行的前面加上行号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31-mount"><span class="nav-number">31.</span> <span class="nav-text">31. mount</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上"><span class="nav-number">31.1.</span> <span class="nav-text">如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载"><span class="nav-number">31.2.</span> <span class="nav-text">也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-chmod"><span class="nav-number">32.</span> <span class="nav-text">32. chmod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod用于改变文件和目录的权限"><span class="nav-number">32.1.</span> <span class="nav-text">chmod用于改变文件和目录的权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定文件的属组的所有权限"><span class="nav-number">32.2.</span> <span class="nav-text">删除指定文件的属组的所有权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改目录的权限，以及递归修改目录下面所有文件和子目录的权限"><span class="nav-number">32.3.</span> <span class="nav-text">修改目录的权限，以及递归修改目录下面所有文件和子目录的权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-chown"><span class="nav-number">33.</span> <span class="nav-text">33. chown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同时将某个文件的属主改为oracle，属组改为db"><span class="nav-number">33.1.</span> <span class="nav-text">同时将某个文件的属主改为oracle，属组改为db</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-R选项对目录和目录下的文件进行递归修改"><span class="nav-number">33.2.</span> <span class="nav-text">使用-R选项对目录和目录下的文件进行递归修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-passwd"><span class="nav-number">34.</span> <span class="nav-text">34. passwd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#passwd用于在命令行修改密码，使用这个命令会要求你先输入旧密码，然后输入新密码"><span class="nav-number">34.1.</span> <span class="nav-text">passwd用于在命令行修改密码，使用这个命令会要求你先输入旧密码，然后输入新密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超级用户可以用这个命令修改其他用户的密码，这个时候不需要输入用户的密码"><span class="nav-number">34.2.</span> <span class="nav-text">超级用户可以用这个命令修改其他用户的密码，这个时候不需要输入用户的密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passwd还可以删除某个用户的密码，这个命令只有root用户才能操作，删除密码后，这个用户不需要输入密码就可以登录到系统"><span class="nav-number">34.3.</span> <span class="nav-text">passwd还可以删除某个用户的密码，这个命令只有root用户才能操作，删除密码后，这个用户不需要输入密码就可以登录到系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-mkdir"><span class="nav-number">35.</span> <span class="nav-text">35. mkdir</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在home目录下创建一个名为temp的目录"><span class="nav-number">35.1.</span> <span class="nav-text">在home目录下创建一个名为temp的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-p选项可以创建一个路径上所有不存在的目录"><span class="nav-number">35.2.</span> <span class="nav-text">使用-p选项可以创建一个路径上所有不存在的目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-ifconfig"><span class="nav-number">36.</span> <span class="nav-text">36. ifconfig</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有网络接口及其状态"><span class="nav-number">36.1.</span> <span class="nav-text">查看所有网络接口及其状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用up和down命令启动或停止某个接口"><span class="nav-number">36.2.</span> <span class="nav-text">使用up和down命令启动或停止某个接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#37-uname"><span class="nav-number">37.</span> <span class="nav-text">37. uname</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息"><span class="nav-number">37.1.</span> <span class="nav-text">uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#38-whereis"><span class="nav-number">38.</span> <span class="nav-text">38. whereis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当你不知道某个命令的位置时可以使用whereis命令，下面使用whereis查找ls的位置"><span class="nav-number">38.1.</span> <span class="nav-text">当你不知道某个命令的位置时可以使用whereis命令，下面使用whereis查找ls的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当你想查找某个可执行程序的位置，但这个程序又不在whereis的默认目录下，你可以使用-B选项，并指定目录作为这个选项的参数。下面的命令在-tmp目录下查找lsmk命令"><span class="nav-number">38.2.</span> <span class="nav-text">当你想查找某个可执行程序的位置，但这个程序又不在whereis的默认目录下，你可以使用-B选项，并指定目录作为这个选项的参数。下面的命令在&#x2F;tmp目录下查找lsmk命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#39-whatis"><span class="nav-number">39.</span> <span class="nav-text">39. whatis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wathis显示某个命令的描述信息"><span class="nav-number">39.1.</span> <span class="nav-text">wathis显示某个命令的描述信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#40-locate"><span class="nav-number">40.</span> <span class="nav-text">40. locate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面的命令会显示系统中所有包含crontab字符串的文件"><span class="nav-number">40.1.</span> <span class="nav-text">下面的命令会显示系统中所有包含crontab字符串的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#41-man"><span class="nav-number">41.</span> <span class="nav-text">41. man</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示某个命令的man页面"><span class="nav-number">41.1.</span> <span class="nav-text">显示某个命令的man页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有些命令可能会有多个man页面，每个man页面对应一种命令类型"><span class="nav-number">41.2.</span> <span class="nav-text">有些命令可能会有多个man页面，每个man页面对应一种命令类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#man页面一般可以分为8种命令类型"><span class="nav-number">41.3.</span> <span class="nav-text">man页面一般可以分为8种命令类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-tail"><span class="nav-number">42.</span> <span class="nav-text">42. tail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tail命令默认显示文件最后的10行文本"><span class="nav-number">42.1.</span> <span class="nav-text">tail命令默认显示文件最后的10行文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你可以使用-n选项指定要显示的行数"><span class="nav-number">42.2.</span> <span class="nav-text">你可以使用-n选项指定要显示的行数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你也可以使用-f选项进行实时查看，这个命令执行后会等待，如果有新行添加到文件尾部，它会继续输出新的行，在查看日志时这个选项会非常有用。你可以通过CTRL-C终止命令的执行"><span class="nav-number">42.3.</span> <span class="nav-text">你也可以使用-f选项进行实时查看，这个命令执行后会等待，如果有新行添加到文件尾部，它会继续输出新的行，在查看日志时这个选项会非常有用。你可以通过CTRL-C终止命令的执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#43-less"><span class="nav-number">43.</span> <span class="nav-text">43. less</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用"><span class="nav-number">43.1.</span> <span class="nav-text">这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当你用less命令打开某个文件时，下面两个按键会给你带来很多帮助，他们用于向前和向后滚屏"><span class="nav-number">43.2.</span> <span class="nav-text">当你用less命令打开某个文件时，下面两个按键会给你带来很多帮助，他们用于向前和向后滚屏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#44-su"><span class="nav-number">44.</span> <span class="nav-text">44. su</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码"><span class="nav-number">44.1.</span> <span class="nav-text">su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用另外一个用户名执行一个命令下面的示例中用户john使用raj用户名执行ls命令，执行完后返回john的账号"><span class="nav-number">44.2.</span> <span class="nav-text">用另外一个用户名执行一个命令下面的示例中用户john使用raj用户名执行ls命令，执行完后返回john的账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用指定用户登录，并且使用指定的shell程序，而不用默认的"><span class="nav-number">44.3.</span> <span class="nav-text">用指定用户登录，并且使用指定的shell程序，而不用默认的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-mysql"><span class="nav-number">45.</span> <span class="nav-text">45. mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接一个远程数据库，需要输入密码"><span class="nav-number">45.1.</span> <span class="nav-text">连接一个远程数据库，需要输入密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接本地数据库"><span class="nav-number">45.2.</span> <span class="nav-text">连接本地数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-yum"><span class="nav-number">46.</span> <span class="nav-text">46. yum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用yum安装apache"><span class="nav-number">46.1.</span> <span class="nav-text">使用yum安装apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新apache"><span class="nav-number">46.2.</span> <span class="nav-text">更新apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载-删除apache"><span class="nav-number">46.3.</span> <span class="nav-text">卸载&#x2F;删除apache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#47-rpm"><span class="nav-number">47.</span> <span class="nav-text">47. rpm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rpm安装apache"><span class="nav-number">47.1.</span> <span class="nav-text">使用rpm安装apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新apache-1"><span class="nav-number">47.2.</span> <span class="nav-text">更新apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载-删除apache-1"><span class="nav-number">47.3.</span> <span class="nav-text">卸载&#x2F;删除apache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#48-ping"><span class="nav-number">48.</span> <span class="nav-text">48. ping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ping一个远程主机，只发5个数据包"><span class="nav-number">48.1.</span> <span class="nav-text">ping一个远程主机，只发5个数据包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#49-date"><span class="nav-number">49.</span> <span class="nav-text">49. date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置系统日期"><span class="nav-number">49.1.</span> <span class="nav-text">设置系统日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当你修改了系统时间，你需要同步硬件时间和系统时间"><span class="nav-number">49.2.</span> <span class="nav-text">当你修改了系统时间，你需要同步硬件时间和系统时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#50-wget"><span class="nav-number">50.</span> <span class="nav-text">50. wget</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用wget从网上下载软件、音乐、视频"><span class="nav-number">50.1.</span> <span class="nav-text">使用wget从网上下载软件、音乐、视频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件并以指定的文件名保存文件"><span class="nav-number">50.2.</span> <span class="nav-text">下载文件并以指定的文件名保存文件</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
+        <div id="lv-container">
+        </div>
 
     </div>
-  </aside>
+</div>
 
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Moody</span>
-
-  
+    </div>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
-
-
-
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
 
         
 
-
-
-
-
-
+        
 
         
-      </div>
-    </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
         
-      </div>
+
+    </ul>
     
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
 
-    
 
-  </div>
 
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
 
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
 </html>
