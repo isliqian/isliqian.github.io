@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.liqian.fun/"/>
-  <updated>2020-03-04T07:34:54.480Z</updated>
+  <updated>2020-03-11T08:07:01.650Z</updated>
   <id>https://blog.liqian.fun/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>非常好用的maven插件合集</title>
+    <link href="https://blog.liqian.fun/2020/03/11/%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84maven%E6%8F%92%E4%BB%B6%E5%90%88%E9%9B%86/"/>
+    <id>https://blog.liqian.fun/2020/03/11/%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84maven%E6%8F%92%E4%BB%B6%E5%90%88%E9%9B%86/</id>
+    <published>2020-03-11T08:05:02.000Z</published>
+    <updated>2020-03-11T08:07:01.650Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数据库版本控制"><a href="#数据库版本控制" class="headerlink" title="数据库版本控制"></a>数据库版本控制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 数据库版本管理 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.flywaydb&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;flyway-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.2.0&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;url&gt;$&#123;flyway.db.url&#125;&lt;&#x2F;url&gt;</span><br><span class="line">        &lt;user&gt;$&#123;flyway.db.user&#125;&lt;&#x2F;user&gt;</span><br><span class="line">        &lt;password&gt;$&#123;flyway.db.password&#125;&lt;&#x2F;password&gt;</span><br><span class="line">    &lt;&#x2F;configuration&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure><h3 id="代码检查插件"><a href="#代码检查插件" class="headerlink" title="代码检查插件"></a>代码检查插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--代码检查插件--&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.spotbugs&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spotbugs-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.1.12.2&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.github.spotbugs&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spotbugs&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.0.0&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure><h3 id="打包插件"><a href="#打包插件" class="headerlink" title="打包插件"></a>打包插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;数据库版本控制&quot;&gt;&lt;a href=&quot;#数据库版本控制&quot; class=&quot;headerlink&quot; title=&quot;数据库版本控制&quot;&gt;&lt;/a&gt;数据库版本控制&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://blog.liqian.fun/categories/java/"/>
+    
+    
+      <category term="maven" scheme="https://blog.liqian.fun/tags/maven/"/>
+    
+  </entry>
   
   <entry>
     <title>一次明白什么是JVM</title>
