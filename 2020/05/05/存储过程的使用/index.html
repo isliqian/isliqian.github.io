@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="李前的博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        存储过程的使用 - Moody&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Moody's Blog" type="application/atom+xml">
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Talk is cheap,Show me your code. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/images/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Moody</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础数据表（students）创建"><span class="toc-text">基础数据表（students）创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本结构"><span class="toc-text">基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不带参数的存储过程"><span class="toc-text">不带参数的存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带参数的存储过程"><span class="toc-text">带参数的存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带有输出参数的存储过程"><span class="toc-text">带有输出参数的存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带有通配符的存储过程"><span class="toc-text">带有通配符的存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用存储过程进行增加、修改、删除"><span class="toc-text">使用存储过程进行增加、修改、删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增加"><span class="toc-text">增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改"><span class="toc-text">修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询所有的存储过程"><span class="toc-text">查询所有的存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询某个存储过程"><span class="toc-text">查询某个存储过程</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Talk is cheap,Show me your code. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        存储过程的使用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-05-05 14:06:26</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#db" title="db">db</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="基础数据表（students）创建"><a href="#基础数据表（students）创建" class="headerlink" title="基础数据表（students）创建"></a>基础数据表（students）创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">create table students(</span><br><span class="line">    id int primary key auto_increment,</span><br><span class="line">    age int,</span><br><span class="line">    name varchar(20),</span><br><span class="line">    city varchar(20)</span><br><span class="line">) character set utf8;</span><br><span class="line"></span><br><span class="line">insert into students values(null, 22, &#39;赵四&#39;, &#39;杭州&#39;);</span><br><span class="line">insert into students values(null, 16, &#39;刘能&#39;, &#39;上海&#39;);</span><br><span class="line">insert into students values(null, 20, &#39;谢广坤&#39;, &#39;深圳&#39;);</span><br><span class="line">insert into students values(null, 21, &#39;刘美兰&#39;, &#39;北京&#39;);</span><br><span class="line">insert into students values(null, 20, &#39;宋晓峰&#39;, &#39;湖北&#39;);</span><br><span class="line">insert into students values(null, 21, &#39;谢大脚&#39;, &#39;江苏&#39;);</span><br><span class="line">insert into students values(null, 20, &#39;苏玉红&#39;, &#39;天津&#39;);</span><br><span class="line">insert into students values(null, 21, &#39;陈艳兰&#39;, &#39;云南&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create or replace procedure 存储过程名字</span><br><span class="line">(</span><br><span class="line">​	参数1 in number,</span><br><span class="line">​	参数2 in number</span><br><span class="line">) is </span><br><span class="line">变量1 integer :&#x3D; 0;</span><br><span class="line">变量2 date;</span><br><span class="line">begin</span><br><span class="line">end 存储过程名字</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>存储过程参数不带取值范围，in代表传入，out代表输出。</li>
+<li>变量带取值范围，后面接分号。</li>
+<li>在判断语句前最好先用count(*)，函数判断是否存在该条操作记录。</li>
+<li>用select <strong>** into **</strong> 给变量赋值。</li>
+<li>在代码中抛出异常用raise+异常名。</li>
+</ol>
+<h2 id="不带参数的存储过程"><a href="#不带参数的存储过程" class="headerlink" title="不带参数的存储过程"></a>不带参数的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;; -- 替换分隔符</span><br><span class="line">    create procedure select_students_count() </span><br><span class="line">        begin </span><br><span class="line">            select count(id) from students; </span><br><span class="line">        end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call select_students_count();</span><br></pre></td></tr></table></figure>
+
+<h2 id="带参数的存储过程"><a href="#带参数的存储过程" class="headerlink" title="带参数的存储过程"></a>带参数的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- 根据城市查询总数</span><br><span class="line">delimiter ;;</span><br><span class="line">    create procedure sp_test(in _city varchar(25) CHARACTER SET utf8)--  in (表示参数传递给存储过程)</span><br><span class="line">        begin</span><br><span class="line">            select _city;</span><br><span class="line">        end;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call select_students_by_city_count(&#39;北京&#39;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在创建存储过程的时候，设计中文的参数的数据类型需为Nvarchar，网上据说传递参数的时候也需要多加一个N（这里我没加貌似也正常输出）。</p>
+</blockquote>
+<h2 id="带有输出参数的存储过程"><a href="#带有输出参数的存储过程" class="headerlink" title="带有输出参数的存储过程"></a><strong>带有输出参数的存储过程</strong></h2><blockquote>
+<p>MySQL 支持 in (传递给存储过程)，out (从存储过程传出) 和 inout (对存储过程传入和传出) 类型的参数。存储过程的代码位于 begin 和 end 语句内，它们是一系列 select 语句，用来检索值，然后保存到相应的变量 (通过 into 关键字)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-- 根据姓名查询学生信息，返回学生的城市</span><br><span class="line">delimiter ;;</span><br><span class="line">create procedure select_students_by_name(</span><br><span class="line">    in _name nvarchar(255),</span><br><span class="line">    out _city nvarchar(255), -- 输出参数</span><br><span class="line">    inout _age int(11)</span><br><span class="line">)</span><br><span class="line">    begin </span><br><span class="line">        select city from students where name &#x3D; _name and age &#x3D; _age into _city;</span><br><span class="line">    end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">set @_age &#x3D; 20;</span><br><span class="line">set @_name &#x3D; &#39;谢广坤&#39;;</span><br><span class="line">call select_students_by_name(@_name, @_city, @_age);</span><br><span class="line">select @_name as name,@_city as city, @_age as age;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带有通配符的存储过程"><a href="#带有通配符的存储过程" class="headerlink" title="带有通配符的存储过程"></a><strong>带有通配符的存储过程</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;;</span><br><span class="line">create procedure select_students_by_likename(</span><br><span class="line">    in _likename nvarchar(255)</span><br><span class="line">)</span><br><span class="line">    begin</span><br><span class="line">        select * from students where name like _likename;</span><br><span class="line">    end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call select_students_by_likename(&#39;%刘%&#39;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用存储过程进行增加、修改、删除"><a href="#使用存储过程进行增加、修改、删除" class="headerlink" title="使用存储过程进行增加、修改、删除"></a><strong>使用存储过程进行增加、修改、删除</strong></h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;;</span><br><span class="line">create procedure insert_student(</span><br><span class="line">    _id int,</span><br><span class="line">    _name nvarchar(255),</span><br><span class="line">    _age int,</span><br><span class="line">    _city nvarchar(255)</span><br><span class="line">)</span><br><span class="line">    begin</span><br><span class="line">        insert into students(id,name,age,city) values(_id,_name,_age,_city);</span><br><span class="line">    end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call insert_student(9, &#39;瓶底子&#39;, 19, &#39;东北&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;;</span><br><span class="line">create procedure update_student(</span><br><span class="line">    _id int,</span><br><span class="line">    _name nvarchar(25),</span><br><span class="line">    _age int,</span><br><span class="line">    _city nvarchar(25)</span><br><span class="line">)</span><br><span class="line">    begin</span><br><span class="line">        update students set name &#x3D; _name, age &#x3D; _age, city &#x3D; _city where id &#x3D; _id;</span><br><span class="line">    end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call update_student(9, &#39;李大个&#39;, 22, &#39;杭州&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;;</span><br><span class="line">create procedure delete_student_by_id(</span><br><span class="line">    _id int</span><br><span class="line">)</span><br><span class="line">    begin</span><br><span class="line">        delete from students where id&#x3D;_id;</span><br><span class="line">    end ;;</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- 执行存储过程</span><br><span class="line">call delete_student_by_id(9);</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询所有的存储过程"><a href="#查询所有的存储过程" class="headerlink" title="查询所有的存储过程"></a>查询所有的存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from mysql.proc where db&#x3D;&#39;test&#39;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询某个存储过程"><a href="#查询某个存储过程" class="headerlink" title="查询某个存储过程"></a>查询某个存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create procedure 存储过程名;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
