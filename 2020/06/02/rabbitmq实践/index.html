@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="李前的博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        rabbitmq实践 - Moody&#39;s Blog
+        
+    </title>
+    
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Moody's Blog" type="application/atom+xml">
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Talk is cheap,Show me your code. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/images/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Moody</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RabbitMq消息队列实践"><span class="toc-text">RabbitMq消息队列实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本知识点"><span class="toc-text">基本知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Message消息"><span class="toc-text">Message消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Publisher生产者"><span class="toc-text">Publisher生产者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Exchange交换机"><span class="toc-text">Exchange交换机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Binding绑定"><span class="toc-text">Binding绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Queue队列"><span class="toc-text">Queue队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Connection连接"><span class="toc-text">Connection连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Channel通道"><span class="toc-text">Channel通道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consumer消费者"><span class="toc-text">Consumer消费者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Virtual-Host虚拟主机"><span class="toc-text">Virtual Host虚拟主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Broker消息队列服务器实体"><span class="toc-text">Broker消息队列服务器实体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息的生产与消费"><span class="toc-text">消息的生产与消费</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本构建缺一不可"><span class="toc-text">基本构建缺一不可</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目使用"><span class="toc-text">项目使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven坐标"><span class="toc-text">Maven坐标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle坐标"><span class="toc-text">Gradle坐标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式"><span class="toc-text">模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Simple模式"><span class="toc-text">Simple模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Publisher"><span class="toc-text">Publisher</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Consumer"><span class="toc-text">Consumer</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更多模式"><span class="toc-text">更多模式</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Talk is cheap,Show me your code. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        rabbitmq实践
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-06-02 17:25:31</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#java" title="java">java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="RabbitMq消息队列实践"><a href="#RabbitMq消息队列实践" class="headerlink" title="RabbitMq消息队列实践"></a>RabbitMq消息队列实践</h1><h2 id="基本知识点"><a href="#基本知识点" class="headerlink" title="基本知识点"></a>基本知识点</h2><p>采用Erlang语言实现的<strong>Advanced Message Queued Protocol</strong> 的消息队列，最初源于金融系统，用户在分布式系统中存储转发消息，目前用户各类系统的解耦，削峰。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>可靠性：通过支持消息持久化，支持事物，支持消费和传输的ack等来确保可靠性。</li>
+<li>路由机制：支持主流的订阅消费模式，如广播，订阅，headers匹配等。</li>
+<li>扩展性：多个RabbitMq节点可以组成一个集群，也可以根据实际业务情况动态的扩展集群中的节点。</li>
+<li>高可用性：RabbitMq除了支持原生的AMQP协议，还支持STOMP，MQTT等多种消息中间件协议。</li>
+<li>多语言客户端：RabbitMq几乎支持所有常用语言，如Java，Python，Ruby等。</li>
+<li>管理界面：RabbitMq提供了一个简单易用的界面，使得用户可以监控和管理消息，集群中的节点。</li>
+<li>插件机制：RabbitMq提供了多种插件，以实现从多方面进行扩展，当然也可以编写自己的插件。</li>
+</ul>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="Message消息"><a href="#Message消息" class="headerlink" title="Message消息"></a>Message消息</h4><p>具体的消息，包涵消息头（附属的配置信息）和消息体（消息的实体内容），由发布者将消息推送到<strong>Exchange（交换机）</strong>，由消费者从Queue中获取。</p>
+<h4 id="Publisher生产者"><a href="#Publisher生产者" class="headerlink" title="Publisher生产者"></a>Publisher生产者</h4><p>消息生产者，负责将消息发布到<strong>Exchange（交换机）</strong>中。</p>
+<h4 id="Exchange交换机"><a href="#Exchange交换机" class="headerlink" title="Exchange交换机"></a>Exchange交换机</h4><p>交换机，用来接收<strong>Publisher（生产者）</strong>发送的消息并将这些消息路由给服务器中的<strong>Queue（队列）</strong>。</p>
+<h4 id="Binding绑定"><a href="#Binding绑定" class="headerlink" title="Binding绑定"></a>Binding绑定</h4><p>绑定，用于给<strong>Exchange（交换机）</strong>和<strong>Queue（队列）</strong>建立关系，从而决定将这个<strong>Exchange（交换机</strong>）中的哪些消息，发送到对应的<strong>Queue（队列）</strong>。</p>
+<h4 id="Queue队列"><a href="#Queue队列" class="headerlink" title="Queue队列"></a>Queue队列</h4><p>消息队列，用于保存消息直接发送到消费者。它是消息的容器，也是消息的终点。一个消息可投入一个或多个消息队列，消息一直在队列里面，等待消费者连接到这个队列将其取走。</p>
+<h4 id="Connection连接"><a href="#Connection连接" class="headerlink" title="Connection连接"></a>Connection连接</h4><p>连接，内部持有一些<strong>channel（通道）</strong>，用于和<strong>queue（队列）</strong>打交道。</p>
+<h4 id="Channel通道"><a href="#Channel通道" class="headerlink" title="Channel通道"></a>Channel通道</h4><p>通道，RabbitMq与外部打交道都是通过<strong>Channel（通道）</strong>来的，发布消息，订阅队列还是接收消息，这些动作都是通过通道来的，简单的说消息通过<strong>Channel（通道）</strong>塞进队列或者流出队列。</p>
+<h4 id="Consumer消费者"><a href="#Consumer消费者" class="headerlink" title="Consumer消费者"></a>Consumer消费者</h4><p>消费者，从消息队列中获取消息的主体。</p>
+<h4 id="Virtual-Host虚拟主机"><a href="#Virtual-Host虚拟主机" class="headerlink" title="Virtual Host虚拟主机"></a>Virtual Host虚拟主机</h4><p>虚拟主机，表示一批交换机，消息队列，和相关对象。虚拟主机是共享相同身份认证和加密环境的独立服务器域。</p>
+<p>每个vhost本质上就是一个mini版的RabbitMq服务器，拥有自己的队列，交换器，绑定和权限机制。</p>
+<p>vhost是AMQP概念的基础，必须在连接时指定，RabbitMq默认的vhost是/，<strong>可以理解为db中的数据库概念，用于逻辑拆分。</strong></p>
+<h4 id="Broker消息队列服务器实体"><a href="#Broker消息队列服务器实体" class="headerlink" title="Broker消息队列服务器实体"></a>Broker消息队列服务器实体</h4><p>broker是指一个或多个erlang node的逻辑分组，且node上运行着RabbitMq应用程序，cluster是在broker的基础上，增加了node之间的的共享元数据的约束。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>启动服务</li>
+</ul>
+<p>rabbitmq-server start &amp;</p>
+<ul>
+<li>停止服务</li>
+</ul>
+<p>rabbitmq-server stop_  app</p>
+<ul>
+<li>管理插件</li>
+</ul>
+<p>rabbitmq-plugins enable rabbitmq_management</p>
+<h2 id="消息的生产与消费"><a href="#消息的生产与消费" class="headerlink" title="消息的生产与消费"></a>消息的生产与消费</h2><h3 id="基本构建缺一不可"><a href="#基本构建缺一不可" class="headerlink" title="基本构建缺一不可"></a>基本构建缺一不可</h3><ul>
+<li>ConnectionFactory: 获取连接工厂。</li>
+<li>Connection：一个连接。</li>
+<li>Channel：数据通信信道，可发送和接收消息。</li>
+<li>Queue：具体的消息存储队列。</li>
+<li>Publisher：生产者。</li>
+<li>Consumer：消费者。</li>
+</ul>
+<h2 id="项目使用"><a href="#项目使用" class="headerlink" title="项目使用"></a>项目使用</h2><h3 id="Maven坐标"><a href="#Maven坐标" class="headerlink" title="Maven坐标"></a>Maven坐标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.rabbitmq&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;amqp-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.9.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gradle坐标"><a href="#Gradle坐标" class="headerlink" title="Gradle坐标"></a>Gradle坐标</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile group: &#39;com.rabbitmq&#39;, name: &#39;amqp-client&#39;, version: &#39;5.9.0&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><h4 id="Simple模式"><a href="#Simple模式" class="headerlink" title="Simple模式"></a>Simple模式</h4><h5 id="Publisher"><a href="#Publisher" class="headerlink" title="Publisher"></a>Publisher</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class Publisher1 &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    private static final String EX_CHANGE &#x3D; &quot;rabbit_ex_routing&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[]) throws IOException, TimeoutException &#123;</span><br><span class="line">        &#x2F;&#x2F;创建connectionFactory,并进行配置</span><br><span class="line">        ConnectionFactory connectionFactory &#x3D; new ConnectionFactory();</span><br><span class="line">        connectionFactory.setHost(&quot;111.229.247.151&quot;);</span><br><span class="line">        connectionFactory.setPort(5672);</span><br><span class="line">        connectionFactory.setVirtualHost(&quot;&#x2F;&quot;);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;建立连接</span><br><span class="line">        Connection connection &#x3D; connectionFactory.newConnection();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;创立通道</span><br><span class="line">        Channel channel &#x3D; connection.createChannel();</span><br><span class="line"></span><br><span class="line">        &#x2F;**</span><br><span class="line">         * 声明MQ</span><br><span class="line">         * 参数1：交换机名称</span><br><span class="line">         * 参数2：声明交换机类型，主要有以下类型，主要使用前三种类型</span><br><span class="line">         * fanout:会把所有发送到该交换机的消息路由到所有与它绑定的Queue中</span><br><span class="line">         * direct：会把消息路由到那些banding key与routing key完全匹配的Queue种</span><br><span class="line">         * topic：模糊匹配，可以通过通配符满足一部分规则就可以传送，其中&quot;*&quot;用于匹配一个单词，&quot;#&quot;用于匹配多个单词（可以是零个）</span><br><span class="line">         * headers：headers类型的Exchange不依赖于routing key与binding key的匹配规则来路由消息，而是根据发送消息中的headers属性进行匹配</span><br><span class="line">         *&#x2F;</span><br><span class="line">        channel.exchangeDeclare(EX_CHANGE, BuiltinExchangeType.DIRECT);&#x2F;&#x2F;direct路由模式</span><br><span class="line"></span><br><span class="line">        channel.basicPublish(EX_CHANGE,&quot;blue&quot;,null,&quot;blue&quot;.getBytes());</span><br><span class="line">        channel.basicPublish(EX_CHANGE,&quot;red&quot;,null,&quot;red&quot;.getBytes());</span><br><span class="line">        channel.basicPublish(EX_CHANGE,&quot;yellow&quot;,null,&quot;yellow&quot;.getBytes());</span><br><span class="line">        &#x2F;&#x2F;关闭连接</span><br><span class="line">        channel.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class Consumer1 &#123;</span><br><span class="line"></span><br><span class="line">    private static final  String QUEUE &#x3D; &quot;rabbit_simple&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[]) throws IOException, TimeoutException &#123;</span><br><span class="line">        &#x2F;&#x2F;创建connectionFactory,并进行配置</span><br><span class="line">        ConnectionFactory connectionFactory &#x3D; new ConnectionFactory();</span><br><span class="line">        connectionFactory.setHost(&quot;111.229.247.151&quot;);</span><br><span class="line">        connectionFactory.setPort(5672);</span><br><span class="line">        connectionFactory.setVirtualHost(&quot;&#x2F;&quot;);</span><br><span class="line">        &#x2F;&#x2F;建立连接</span><br><span class="line">        Connection connection &#x3D; connectionFactory.newConnection();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;通过连接建立一个通道</span><br><span class="line">        Channel channel &#x3D; connection.createChannel();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;声明一个队列</span><br><span class="line">        channel.queueDeclare(QUEUE,false,false,false,null);</span><br><span class="line">        &#x2F;&#x2F;创建消费者</span><br><span class="line">        DefaultConsumer defaultConsumer &#x3D; new DefaultConsumer(channel)&#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void handleDelivery(String consumerTag,</span><br><span class="line">                                       Envelope envelope,</span><br><span class="line">                                       AMQP.BasicProperties properties,</span><br><span class="line">                                       byte[] body)</span><br><span class="line">                    throws IOException</span><br><span class="line">            &#123;</span><br><span class="line">                String routingKey &#x3D; envelope.getRoutingKey();</span><br><span class="line">                long deliveryTag &#x3D; envelope.getDeliveryTag();</span><br><span class="line">                String msg &#x3D; new String(body,&quot;UTF-8&quot;);</span><br><span class="line">                System.out.println(msg);</span><br><span class="line">                &#x2F;&#x2F;确认响应</span><br><span class="line">                channel.basicAck(deliveryTag, false); &#x2F;&#x2F;false表示确认响应</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        &#x2F;&#x2F;消费者监听接收消息</span><br><span class="line">        while (true)&#123;</span><br><span class="line">            channel.basicConsume(QUEUE,false,defaultConsumer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="更多模式"><a href="#更多模式" class="headerlink" title="更多模式"></a>更多模式</h4><p><a href="https://github.com/isliqian/rabbitmq-example" target="_blank" rel="noopener">https://github.com/isliqian/rabbitmq-example</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
